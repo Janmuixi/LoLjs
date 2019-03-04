@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="lol" onclick="fetchAsync()">
+    <script>
+        url = 'http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion.json'
+        async function fetchAsync () {
+            let response = await fetch(url);
+            let data = await response.json();
+            let datos = data["data"]
+            let amumu = datos["Amumu"]
+            console.log(amumu);
+            
+            for (champ in datos) {
+                let key = datos[champ].key
+                if (key == "18") {
+                    console.log(datos[champ].id);
+                }
+                
+            }
+        }
+  </script>
+</body>
+</html>
